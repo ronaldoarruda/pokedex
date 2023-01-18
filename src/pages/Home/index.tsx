@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { FlatList } from 'react-native'
 import { Card, Pokemon, PokemonType } from '../../components/Card'
+import { FadeAnimation } from '../../components/FadeAnimation'
 import api from '../../service/api'
 
 import * as S from './styles'
@@ -52,7 +53,9 @@ export function Home() {
       data={pokemons}
       keyExtractor={pokemon => pokemon.id.toString()}
       renderItem={({item: pokemon}) => (
-        <Card data={pokemon}/>
+        <FadeAnimation>
+          <Card data={pokemon}/>
+        </FadeAnimation>
       )}
     />
   </S.Container>
